@@ -17,7 +17,7 @@ RPL node Deposit contract Address
 
 All unique validator deposit addresses including Rocketpool node operator (withdrawal addresses), this excludes exchanges such as Coinbase and kraken, and staking as a service/liquid staking such as Lido.
 
-this list is every solo validator owned address that made at least 1 valid deposit to the beacon chain up until the end of June 2022. (will be keeping this updated until the merge)
+this list is every solo validator owned address that made at least 1 valid deposit to the beacon chain up until the Ethereum Merge on 15/09/22. 
 
 **#Beacon Chain Depositors**
 
@@ -29,10 +29,8 @@ All unique ‘withdrawal addresses’ associated with rocketpool node accounts, 
 
 **#Blacklist**
 
-Data From ETHsta.com (https://github.com/Zachary-Lingle)
-Known staking as a service/liquid staking addresses, Such as Lido, Stakewise. exchange addresses such as Kraken,
-this includes Coinbase deposits which account for ~60,000 of the ‘Beacon Chain Depositors’ sheet. 
-some addresses such as known QuadrigaCX wallets
+Data From Ethereumpools.info (https://github.com/alrevuelta/eth-metrics ), ETHsta.com (https://github.com/Zachary-Lingle), to consolidate known staking as a service/liquid staking addresses, Such as Lido, Stakewise. exchange addresses such as Kraken and Binance.
+Addresses were reviewed carefully to avoid false positives. Coinbase addresses which account for 63,559 of the unique addresses were accurately identified using dune analytics: https://dune.com/queries/1283309
 
 
 **Methodology**
