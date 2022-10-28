@@ -19,7 +19,7 @@ All unique validator deposit addresses including Rocketpool node operator (withd
 
 this list is every solo validator owned address that made at least 1 valid deposit to the beacon chain up until the Ethereum Merge on 15/09/22. 
 
-**#Beacon Chain Deposit Addresses**
+**#Beacon Chain Depositors**
 
 All unique addresses that deposited a valid (32ETH) transaction to the ‘ETH2 deposit contract’. this will include addresses belonging to exchanges and liquid/pooled staking providers. contract addresses are excluded from this, such as rocketpool minipool contract addresses
 
@@ -27,7 +27,7 @@ All unique addresses that deposited a valid (32ETH) transaction to the ‘ETH2 d
 
 All unique ‘withdrawal addresses’ associated with rocketpool node accounts, due to security concerns withdrawal addresses which are better fit for receiving any token distributions. This excludes rETH minters.
 
-**#Filter List**
+**#Blacklist**
 
 Data From Ethereumpools.info (https://github.com/alrevuelta/eth-metrics ), ETHsta.com (https://github.com/Zachary-Lingle), to consolidate known staking as a service/liquid staking addresses, Such as Lido, Stakewise. exchange addresses such as Kraken and Binance.
 Addresses were reviewed carefully to avoid false positives. Coinbase addresses which account for 63,559 of the unique addresses were accurately identified using dune analytics: https://dune.com/queries/1283309
