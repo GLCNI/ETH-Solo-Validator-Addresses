@@ -2,12 +2,17 @@
 
 **unique ETH addresses belonging to solo stakers**
 
+**This is intended to identify addresses under control of solo stakers, for projects that wish to target solo stakers for incentives or onboard actors capable of supporting decentralised node operations**
+
+**Methodology**
 ETH2 Deposit Contract: `0x00000000219ab540356cbb839cbe05303d7705fa`
 
-This attempts to identify solo-staker owned addresses, by combining all unique validator deposit addresses including RocketPool node operator (withdrawal) addresses, and removing identified centralised entities such as CEXs (ex: Coinbase, Kraken), and Staking as a Service/ Liquid staking providers (ex: Lido and Stakewise)
+This attempts to identify solo staker owned addresses, by combining all unique validator deposit addresses including RocketPool node operator (withdrawal) addresses, and removing identified centralised entities such as CEXs (ex: Coinbase, Kraken), and Staking as a Service/ Liquid staking providers (ex: Lido and Stakewise)
 
-**Solo-Stakers** are the [backbone of Ethereum](https://blog.rated.network/blog/solo-stakers) and its credible neutrality, this is intended to identify addresses until control of Solo-Stakers, for projects that wish to target solo-stakers for incentives or onboard actors capable of supporting decentralised node operations.
+More details and information on some findings from this repository are expanded on here [Ethereum - How Many Solo Stakers?](https://mirror.xyz/0xf3bF9DDbA413825E5DdF92D15b09C2AbD8d190dd/CzCNFznCveDlKnlVaSU5-MzUtbn9gW0KlgPe5FVrQME)
 
+**Solo Stakers** are the [backbone of Ethereum](https://blog.rated.network/blog/solo-stakers) and its credible neutrality, Rated Network have researched this looking at a wide array of metrics related to validator performance
+estimating that around 6.5% of the network are solo stakers, where this is taking a different approach focusing on deposit addresses and aims to make details public.
 
 ## Solo-Stakers
 
