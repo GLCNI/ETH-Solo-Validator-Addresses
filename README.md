@@ -5,6 +5,8 @@
 **This is intended to identify addresses under control of solo stakers, for projects that wish to target solo stakers for incentives or onboard actors capable of supporting decentralised node operations**
 
 **Methodology**
+
+
 ETH2 Deposit Contract: `0x00000000219ab540356cbb839cbe05303d7705fa`
 
 This attempts to identify solo staker owned addresses, by combining all unique validator deposit addresses including RocketPool node operator (withdrawal) addresses, and removing identified centralised entities such as CEXs (ex: Coinbase, Kraken), and Staking as a Service/ Liquid staking providers (ex: Lido and Stakewise)
