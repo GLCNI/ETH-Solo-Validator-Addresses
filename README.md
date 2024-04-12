@@ -1,41 +1,48 @@
 # ETH-Solo-Validator-Addresses
 
-**unique ETH addresses belonging to solo stakers**
+###  Ethereum addresses belonging to Solo Stakers
 
 **This is intended to identify addresses under control of solo stakers, for projects that wish to target solo stakers for incentives or onboard actors capable of supporting decentralised node operations**
 
-**Methodology**
+**Updated: Dencun network upgrade 2024/03/13**
 
+**Methodology**
+_This attempts to identify solo staker owned addresses, by combining all unique validator deposit addresses including RocketPool node operator (withdrawal) addresses, and removing identified centralised entities such as CEXs (ex: Coinbase, Kraken), and Staking as a Service/ Liquid staking providers (ex: Lido and Stakewise)_
 
 ETH2 Deposit Contract: `0x00000000219ab540356cbb839cbe05303d7705fa`
+All deposit transactions from normal Ethereum addresses to this contract, contract addresses excluded to get `Beacon-Chain-Depositors`, invalid deposits are filtered out.
 
-This attempts to identify solo staker owned addresses, by combining all unique validator deposit addresses including RocketPool node operator (withdrawal) addresses, and removing identified centralised entities such as CEXs (ex: Coinbase, Kraken), and Staking as a Service/ Liquid staking providers (ex: Lido and Stakewise)
+Entities: compiling a comprehensive list of identified entities from etherscan/Hildoby dataset to get `Entity-List`
 
-More details and information on some findings from this repository are expanded on here [Ethereum - How Many Solo Stakers?](https://mirror.xyz/0xf3bF9DDbA413825E5DdF92D15b09C2AbD8d190dd/CzCNFznCveDlKnlVaSU5-MzUtbn9gW0KlgPe5FVrQME)
+Solo Stakers: to get `solo-stakers-a` the known entity addresses are removed from the beacon chain depositors and `RocketPool-Node-Operators` addresses are added.
 
-**Solo Stakers** are the [backbone of Ethereum](https://blog.rated.network/blog/solo-stakers) and its credible neutrality, Rated Network have researched this looking at a wide array of metrics related to validator performance
-estimating that around 6.5% of the network are solo stakers, where this is taking a different approach focusing on deposit addresses and aims to make details public.
+**Additional information and resources**
+More details and information on some findings from this repository are expanded on here [Ethereum - How Many Solo Stakers?](https://mirror.xyz/0xf3bF9DDbA413825E5DdF92D15b09C2AbD8d190dd/CzCNFznCveDlKnlVaSU5-MzUtbn9gW0KlgPe5FVrQME) (2023-10-10)
+
+[**Rated Network**](https://www.rated.network/) [Solo Stakers are the backbone of Ethereum](https://blog.rated.network/blog/solo-stakers) (2023-05-24) and its credible neutrality, researched a wide array of metrics related to validator performance estimating that around 6.5% of the network are solo stakers (at time of writing). Rated have since released this data publicly which can be [found here.](https://github.com/rated-network/solo-stakers/tree/main) 
+
+Differences in Method:  Rated uses a wide range of metrics related to validator performance and ml techniques. This uses a simplistic approach focusing on deposit addresses to the contract and filters out known entities which are easily identifiable, it has been public since inception and is easily reproducible. 
 
 ## Solo-Stakers
 
-**Solo_Stakers_A**
+**Solo_Stakers_A** Potential Solo Staker Owned Addresses
 
-**17,065** Addresses that have made a valid Beacon Chain deposit, with identified entities removed.
+**18,835** Addresses that have made a valid Beacon Chain deposit, with identified entities removed.
 
-known large and easily identified entities are filtered out, however small pools/institutions not easily identified and /can’t be differentiated from potential solo-stakers
+known large and easily identified entities are filtered out, however small pools/institutions not easily identified and can’t be differentiated from potential solo-stakers.
 
-does not attempt to ‘join’ addresses, there are stakers that will use a single use deposit address for privacy concerns meaning multiple addresses can be under control of one
+does not attempt to ‘join’ addresses, there are stakers that will use a single use deposit address for privacy concerns meaning multiple addresses can be under control of one.
 
 _NOTE: this also includes RocketPool NO withdrawal addresses._
 
 
-**Solo_Stakers_B**
+**Solo_Stakers_B** High Confidence Solo Staker Owned Addresses
 
 Addresses that have made a valid Beacon Chain deposit and have also interacted with smart contracts, with identified entities removed.
 
 _from Rated: “**Solo stakers fund all (or some if in Rocketpool) of the stake through their own means**. This is usually via a generic wallet that is used for multiple purposes.”_
 
-**9,420** addresses with history of contract interaction/token transfers indicative of Ethereum users experienced in defi and general on chain activity, and not institutional/exchange owned addresses.
+**10,849** addresses with history of contract interaction/token transfers indicative of Ethereum users experienced in defi and general on chain activity, and not institutional/exchange owned addresses.
 
 Data can be queried from dune with the following:
 ```
@@ -65,17 +72,8 @@ ORDER BY
 
 _NOTE: this also includes RocketPool NO withdrawal addresses._
 
-**Solo_Stakers_merge**
+`/Solo-Stakers-Snapshots` various snapshots at earlier dates can be found here, such as Ethereum network upgrades eg: Merge 
 
-This list contains solo-staker addresses up to the **_merge activation on Sep 15 06:42:42 2022 UTC,_ Block: 15,537,393**
-
-when Ethereum fully transitioned to proof of stake, all stakers before this upgrade had committed to bootstrap the proof of stake chain before proof of stake was proven on Ethereum and taken on early execution risk.
-
-**Solo_Stakers_Shapella**
-
-This list contains solo-staker addresses up to the **Shapella hardfork Apr-12-2023 23:27:35 UTC+1, slot: 6,209,536**
-
-before withdrawals were enabled, all stakers before this upgrade had committed to lock ETH and secure the network before withdrawals were possible and for an unknown period, sacrificing liquidity to provide security to Ethereum.
 
 ## Entity-List
 
@@ -83,57 +81,17 @@ Known Staking as a Service/ Liquid Staking provider addresses (such as Lido and 
 
 Entity tags from https://github.com/hildobby/spellbook/tree/main
 
-**Coinbase A**
+**Coinbase**
 
-94,008 addresses
-
-confirmed Coinbase addresses, these follow a pattern of change returning fees to Coinbase owned accounts. Confirming these deposit addresses are Coinbase owned and controlled.
-
-**Coinbase B**
-
-10,862 addresses
-
-likely Coinbase addresses, addresses that have the same pattern.
-
-there are potentially solo-stakers within this set using Coinbase to obfuscate their deposit, but cannot be distinguished from Coinbase themselves or other entities using this pattern.
+135,084 addresses at 2024/04/10.
 
 Data can be queried from dune with the following:
 ```
-WITH CoinbaseReceived AS (
-    SELECT "to" AS recipient_address
-    FROM ethereum."transactions"
-    WHERE "from" IN (
-        0x71660c4005BA85c37ccec55d0C4493E66Fe775d3,
-        0x503828976D22510aad0201ac7EC88293211D23Da,
-        0xddfAbCdc4D8FfC6d5beaf154f18B778f892A0740,
-        0x3cD751E6b0078Be393132286c442345e5DC49699,
-        0xb5d85CBf7cB3EE0D56b3bB207D5Fc4B82f43F511,
-        0xeB2629a2734e272Bcc07BDA959863f316F4bD4Cf,
-        0xD688AEA8f7d450909AdE10C47FaA95707b0682d9,
-        0x02466E547BFDAb679fC49e96bBfc62B9747D997C,
-        0x6b76F8B1e9E59913BfE758821887311bA1805cAB,
-        0xA9D1e08C7793af67e9d92fe308d5697FB81d3E43,
-        0x77696bb39917C91A0c3908D577d5e322095425cA,
-        0x7c195D981AbFdC3DDecd2ca0Fed0958430488e34,
-        0x95A9bd206aE52C4BA8EecFc93d18EACDd41C88CC,
-        0xb739D0895772DBB71A89A3754A160269068f0D45
-    )
-),
-BeaconDeposits AS (
-    SELECT "from"
-    FROM ethereum."traces"
-    WHERE "to" = 0x00000000219ab540356cBB839Cbe05303d7705Fa
-    AND "from" IN (SELECT recipient_address FROM CoinbaseReceived)
-),
-AllTransactions AS (
-    SELECT "from", COUNT(*) as tx_count
-    FROM ethereum."transactions"
-    WHERE "from" IN (SELECT "from" FROM BeaconDeposits)
-    GROUP BY "from"
-)
-SELECT "from"
-FROM AllTransactions
-WHERE tx_count = 1;
+SELECT
+  depositor_address
+FROM staking_ethereum.entities
+WHERE
+  entity = 'Coinbase'
 ```
 
 ## RocketPool-Node-Operators
@@ -146,7 +104,7 @@ Example:
 curl --compressed "https://rocketscan.io/api/mainnet/nodes" | jq -r '.[].withdrawalAddress' | sort | uniq
 ```
 
-RocketPool validator deposits to the beacon chain are done via smart contract, this manages the matching with ETH from the pool, there are approx. 28,983 Mini-pools - using withdrawal addresses is a better indication of solo-staker owned accounts.
+RocketPool validator deposits to the beacon chain are done via smart contract, this manages the matching with ETH from the pool, there are approx. 34,938 Mini-pools (2024/04/10) - using withdrawal addresses is a better indication of solo-staker owned accounts.
 
 ## Beacon-Chain-Depositors
 
@@ -154,4 +112,17 @@ RocketPool validator deposits to the beacon chain are done via smart contract, t
 
 All Contract addresses are excluded from this, (Including RocketPool Mini-pool contract addresses)
 
-**This is up to 17/09/2023.**
+**This is up to Dencun network upgrade 2024/03/13****
+
+
+## Upcoming 
+
+- Users of Abyss Finance see issue #10
+
+- Adding associated withdrawal addresses as option to use instead.
+
+- Adding validator count per address
+
+- Adding DVT Stakers
+
+- Update Gnosischain
