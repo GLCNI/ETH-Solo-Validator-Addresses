@@ -58,7 +58,7 @@ Unlike identifying Entities with much more resources/disclosures and behavior to
 
 More inclusive is a 'ceiling' on the total Solo Staker profile; it is likely to contain unidentified entities, but all solo stakers should reside in. This simply takes all normal beacon chain depositors and removes positively identified entities.
 
-**15,587** addresses in **Solo Staker A** at “Dencun” network upgrade **2024/03/13** epoch: 26958.
+**15,580** addresses in **Solo Staker A** at “Dencun” network upgrade **2024/03/13** epoch: 26958.
 
 ### Solo-Staker-B:  High confidence Solo Stakers
 
@@ -68,17 +68,17 @@ More restrictive conditions for a more targeted curated set, by looking for addi
 
 _from Rated: “Solo stakers fund all (or some if in Rocketpool) of the stake through their own means. This is usually via a generic wallet that is used for multiple purposes.”_
 
-**7,516** addresses in **Solo Staker B** at “Dencun” network upgrade **2024/03/13** epoch: 26958.
+**7,509** addresses in **Solo Staker B** at “Dencun” network upgrade **2024/03/13** epoch: 26958.
 
 ### Rocketpool node operators
 
 **Rocketpool node operator owned Ethereum withdrawal addresses associated with a node account that operated at least one active validator.**
 
-**Rocketpool node operators account for a large portion of independent node operators on the network and should be included alongside Solo Stakers. [Rocketpool](https://rocketpool.net/) is a decentralized staking pool with permissionless node operators.**
+**Rocketpool accounts for a large portion of independent node operators on the network and should be included alongside Solo Stakers. [Rocketpool](https://rocketpool.net/) is a decentralized staking pool with permissionless node operators.**
 
 Rocketpool node accounts are normal Ethereum addresses, which can be used for token interactions however act as a sudo cold wallet intended only for staking/unstaking interactions with the Rocketpool CLI, it is advised that withdrawal addresses be used.
 
-**34,668 Minipools** (rocketpool validators) deployed with **3,593 node operator withdrawal addresses** at “Dencun” network upgrade **2024/03/13** epoch: 26958.
+**34,668 Minipools** (rocketpool validators) deployed with **2,642 node operator withdrawal addresses** belonging to Solo Stakers using Rocketpool, at “Dencun” network upgrade **2024/03/13** epoch: 26958.
 
 ### Eigenpod  Solo Stakers
 
