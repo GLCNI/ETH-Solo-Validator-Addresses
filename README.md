@@ -1,3 +1,12 @@
+# ATTENTION - MIGRATED 
+
+### Solo Staker List moved to [StakeCat](https://github.com/Stake-Cat) repository (Solo Stakers)[https://github.com/Stake-Cat/Solo-Stakers]
+
+**The current repo is up to Dencun Network Upgrade 2024/03/13 Snapshot (Version 3.1), will not be maintained here going forward, I will be supporting at StakeCat**
+
+**To ensure the latest Snapshot (Version 3.2 onward) please use StakeCat repository.**
+
+----
 # Ethereum addresses belonging to Solo Stakers
 
 **This repository  is intended to identify addresses under the  control of Solo Stakers  and for projects that wish to target Solo Stakers for incentives or onboard actors capable of supporting decentralized node operations.**
